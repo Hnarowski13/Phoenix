@@ -25,7 +25,10 @@ SECRET_KEY = 'cm!3(!(pcdpff&v!zwcfnq*5dk4&9l8!v6r^11%o*r=)z29#_6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+IMAGES_FOLDER_PATH = 'images/'
 
 
 # Application definition
@@ -37,7 +40,20 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp',
+    'home',
+    'cooks',
+    'finance',
+    'jobs',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -56,7 +72,7 @@ ROOT_URLCONF = 'phxapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [( '/Users/Heezy/Documents/phx_app/phxapp/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,6 +84,10 @@ TEMPLATES = [
         },
     },
 ]
+
+# TEMPLATE_DIRS = (
+   
+#     )
 
 WSGI_APPLICATION = 'phxapp.wsgi.application'
 
@@ -104,4 +124,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
 STATIC_URL = '/static/'
+    
+
